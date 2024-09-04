@@ -17,8 +17,11 @@ async function getWeather(city) {
 
 function displayIcon() {
     
-    if(condition.innerText.includes('cloudy') || condition.innerText.includes('Cloudy') || condition.innerText.includes('Overcast')) {
+    if(condition.innerText.includes('cloud') || condition.innerText.includes('Cloud') || condition.innerText.includes('Overcast')) {
         image.src = img[0]
+    }
+    else if(condition.innerText.includes('rain') || condition.innerText.includes('Rain')) {
+        image.src = img[3]
     }
     else if(condition.innerText == 'Condition : Clear') {
         image.src = img[2]
@@ -46,5 +49,6 @@ input.addEventListener('keydown', (event) => {
 const img = [
     'img/cloud.png',
     'img/snowing.png',
-    'img/sun.png'
+    'img/sun.png',
+    'img/rain.png'
 ]
