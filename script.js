@@ -7,9 +7,21 @@ async function getWeather(city) {
 
     temp.innerText =`Tempurature :  ${data.currentConditions.temp}`
     condition.innerText = `Condition : ${data.currentConditions.conditions}`
-    
+
+    displayIcon()
+
     } catch {
         temp.innerText = 'City not found'
+    }
+}
+
+function displayIcon() {
+    
+    if(condition.innerText.includes('cloudy') || condition.innerText.includes('Cloudy') || condition.innerText.includes('Overcast')) {
+        image.src = img[0]
+    }
+    else if(condition.innerText == 'Condition : Clear') {
+        image.src = img[2]
     }
 }
 
@@ -19,6 +31,7 @@ const input = document.getElementById('input')
 const search = document.getElementById('search')
 const temp = document.getElementById('temp')
 const condition = document.getElementById('condition')
+const image = document.getElementById('image')
 
 search.addEventListener('click', ()=> {
     getWeather(input.value)
@@ -29,3 +42,9 @@ input.addEventListener('keydown', (event) => {
         getWeather(input.value)
     }
 })
+
+const img = [
+    'img/cloud.png',
+    'img/snowing.png',
+    'img/sun.png'
+]
