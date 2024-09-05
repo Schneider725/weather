@@ -85,3 +85,8 @@ textarea:not([rows]) {
     align-items: center;
     height: 70vh;
 }
+
+body,
+html {
+  overflow: hidden;
+}
